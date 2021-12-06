@@ -1,0 +1,21 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /member
+
+spring:
+  application:
+    name: member
+  cloud:
+    nacos:
+      discovery: #服务注册与发现
+        server-addr: localhost:8848 #nacos地址
+#        namespace: 770691cd-cac4-448c-8173-5123344c997b  #指定命名空间 可以删掉namespace不写默认public
+
+      #配置文件组成 ： 通俗点 服务名称-指定环境.后缀名称  name-active.file-extension
+      config: #动态配置
+        server-addr: localhost:8848 #nacos地址
+        prefix: ${spring.application.name}
+        file-extension: yml #配置文件类型  非常重要后缀一定要一致 xxx.yml
+#        namespace: 770691cd-cac4-448c-8173-5123344c997b  #指定命名空间 可以删掉namespace不写默认public
+        refresh-enabled: true
