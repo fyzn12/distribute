@@ -13,7 +13,7 @@
 
 ```xml   
   
-	<build>
+    <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -32,8 +32,8 @@
 ## 1. 添加父级模块pom依赖
 
 ```xml    
-  
-	 <properties>
+     
+   <properties>
         <java.version>11</java.version>
         <springBoot.varsion>2.5.4</springBoot.varsion>
         <spring-cloud.version>3.0.4</spring-cloud.version>
@@ -54,7 +54,7 @@
     </properties>
 
   
-	<dependencyManagement>
+     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -133,7 +133,7 @@
 
 ```java  
   
-	<dependencies>
+    <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webflux</artifactId>
