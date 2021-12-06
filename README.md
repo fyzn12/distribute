@@ -88,7 +88,7 @@
             </dependency>
 
            <!-- SpringCloud需要的依赖包  start -->
-			<dependency>
+	    <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-bootstrap</artifactId>
                 <version>${springcloud.version}</version>
@@ -131,7 +131,7 @@
 
 ## 2. 创建网关gateway模块
 
-```java  
+```xml  
   
     <dependencies>
         <dependency>
