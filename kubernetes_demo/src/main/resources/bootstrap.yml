@@ -1,11 +1,12 @@
 server:
-  port: 8081
+  port: 8084
   servlet:
-    context-path: /member
+    # 应用的访问路径
+    context-path: /kubernates
 
 spring:
   application:
-    name: member
+    name: kubernates
   cloud:
     nacos:
       discovery: #服务注册与发现
@@ -20,9 +21,3 @@ spring:
 #        namespace: 770691cd-cac4-448c-8173-5123344c997b  #指定命名空间 可以删掉namespace不写默认public
         refresh-enabled: true
 
-feign:
-  client:
-    config:
-      default:
-        connectTimeout: 2000
-        readTimeout: 2000
