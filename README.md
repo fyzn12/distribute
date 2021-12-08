@@ -238,7 +238,7 @@
 ```  
 
 > 3、 在member模块启动类上使用注解```@EnableFeignClients```    
-> 4、 在member模块中创建报feign并创建FeignServer类
+> 4、 在member模块中创建包feign并创建FeignServer类
 
 ```java  
     
