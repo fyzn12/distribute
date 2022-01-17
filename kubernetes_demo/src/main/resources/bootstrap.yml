@@ -2,7 +2,7 @@ server:
   port: 8084
   servlet:
     # 应用的访问路径
-    context-path: /kubernates
+    context-path: /kubernetes
 
 spring:
   application:
@@ -10,14 +10,26 @@ spring:
   cloud:
     nacos:
       discovery: #服务注册与发现
-        server-addr: localhost:8848 #nacos地址
+        server-addr: 47.94.220.29:8848 #nacos地址
 #        namespace: 770691cd-cac4-448c-8173-5123344c997b  #指定命名空间 可以删掉namespace不写默认public
 
       #配置文件组成 ： 通俗点 服务名称-指定环境.后缀名称  name-active.file-extension
       config: #动态配置
-        server-addr: localhost:8848 #nacos地址
+        server-addr: 47.94.220.29:8848 #nacos地址
         prefix: ${spring.application.name}
         file-extension: yml #配置文件类型  非常重要后缀一定要一致 xxx.yml
 #        namespace: 770691cd-cac4-448c-8173-5123344c997b  #指定命名空间 可以删掉namespace不写默认public
         refresh-enabled: true
 
+kubernetes:
+  secret:
+    # kubernetes的连接token
+    token: eyJhbGciOiJSUzI1NiIsImtpZCI6Ikp6bFltNmlaeUo1RXIzSW4xb2dxc0JwSTlSVHFOTVZ3RkpwSFA5TlNFcEUifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJrdWJlLXN5c3RlbSIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJkYXNoYm9hcmQtYWRtaW4tdG9rZW4tZjl0NzgiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoiZGFzaGJvYXJkLWFkbWluIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQudWlkIjoiY2M3OGM0NzQtZGQ2YS00ZGFhLTgwMWEtN2FkYmMwMTk4YmRhIiwic3ViIjoic3lzdGVtOnNlcnZpY2VhY2NvdW50Omt1YmUtc3lzdGVtOmRhc2hib2FyZC1hZG1pbiJ9.kQ3e8NZ_wG99cLNoRflyyeb7_t_qKeCjylYsRqjkrxZxZrBHA8iacICgZXZnxZ7ZkoOGF3bbS4rB7F0WHpKeAK4Q6hFSAr2_gmmu-uvl57pHDHz0gEf65UlWaHfI-oXyN8fqaBmtOS5jQciuQxvyKgC1dPDx2aLEDIJ_W8pV-iv6zfbMLXAdXa8Eoczdpdn-AWue7nsKvP920KOfiI0KULla8jP2-z1PjtiK9cjZv9itmjvMALPPjRZaBJviyLgEVprTq7kay_eTX9oTYEtFH6XAX2qf_1MQcS_d36CEgt9BtP2haOSVz7-DhVTMnEANDTUqd5sTy0L_2GxJEAVeqg
+  master:
+    # kubernetes集群master的url
+    url: 47.103.144.244
+    # kubernetes集群master的port
+    port: 6443
+    scheme: https://
+    # 上面三个地址的拼接  可以直接设置成 https://47.103.144.244:6443
+    requestUrl: ${kubernetes.master.scheme}${kubernetes.master.url}:${kubernetes.master.port}
